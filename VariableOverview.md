@@ -53,17 +53,17 @@ First consider a standard lat-lon grid:
 
 ```
 float ${name}(lat, lon) ;
-		orog:standard_name = "${standard_name}" ;
-		orog:long_name = "$(title}" ;
-		orog:units = "${units}" ;
-		orog:cell_methods = "${CELL_METHODS()}" ;
-		orog:cell_measures = "area: areacella" ;
-		orog:missing_value = ${mv} ;
-		orog:_FillValue = ${mv} ;
+		${name}:standard_name = "${standard_name}" ;
+		${name}:long_name = "$(title}" ;
+		${name}:units = "${units}" ;
+		${name}:cell_methods = "${CELL_METHODS()}" ;
+		${name}:cell_measures = "area: areacella" ;
+		${name}:missing_value = ${mv} ;
+		${name}:_FillValue = ${mv} ;
 ```
 
-* cell_measures: this is considered as part of the structure: different cell_measures values imply substantially different encoding;
-* cell_methods: this string has a complex structure ... the string itself is considered as a semantic object so that we can arrive at a pragmatic 
+* `cell_measures`: this is considered as part of the structure: different `cell_measures` values imply substantially different encoding;
+* `cell_methods`: this string has a complex structure ... the string itself is considered as a semantic object so that we can arrive at a pragmatic 
 classification of different structures.
 
 
