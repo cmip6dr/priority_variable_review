@@ -56,7 +56,7 @@ float ${name}(lat, lon) ;
 		${name}:standard_name = "${standard_name}" ;
 		${name}:long_name = "$(title}" ;
 		${name}:units = "${units}" ;
-		${name}:cell_methods = "${CELL_METHODS()}" ;
+		${name}:cell_methods = "area: mean";
 		${name}:cell_measures = "area: areacella" ;
 		${name}:missing_value = ${mv} ;
 		${name}:_FillValue = ${mv} ;
@@ -64,10 +64,56 @@ float ${name}(lat, lon) ;
 
 * `cell_measures`: this is considered as part of the structure: different `cell_measures` values imply substantially different encoding;
 * `cell_methods`: this string has a complex structure ... the string itself is considered as a semantic object so that we can arrive at a pragmatic 
-classification of different structures.
+classification of different structures.  BUT -- HAVE A SINGLE VALUE FOR THIS STRUCTURE ....
+
+## No temporal dimensions ... fixed field, Global field (single level, area sum) [XY-na]
+
+There are two variables with no cell measures:
+
+```
+float ${name}(lat, lon) ;
+		${name}:standard_name = "${standard_name}" ;
+		${name}:long_name = "$(title}" ;
+		${name}:units = "${units}" ;
+		${name}:cell_methods = "area: sum" ;
+		${name}:missing_value = ${mv} ;
+		${name}:_FillValue = ${mv} ;
+```
+
+This form is used for the `areacella` and `areacello` variables which contain the cell area. 
 
 
+## No temporal dimensions ... fixed field, Global field (single level) [XY-na] [amla] 
+
+For `mrsofc`:
+
+```
+float ${name}(lat, lon) ;
+		${name}:standard_name = "${standard_name}" ;
+		${name}:long_name = "$(title}" ;
+		${name}:units = "${units}" ;
+		${name}:cell_methods = "area: mean where ${mask_type}";
+		${name}:cell_measures = "area: areacella" ;
+		${name}:missing_value = ${mv} ;
+		${name}:_FillValue = ${mv} ;
+```
+
+# Tripolar
+
+The latitude and longitude are stored as a rank-2 array.
 
 
-
-
+```
+	float lat(y, x) ;
+		lat:standard_name = "latitude" ;
+		lat:long_name = "Latitude" ;
+		lat:units = "degrees_north" ;
+		lat:bounds = "bounds_lat" ;
+	float lon(y, x) ;
+		lon:standard_name = "longitude" ;
+		lon:long_name = "Longitude" ;
+		lon:units = "degrees_east" ;
+		lon:bounds = "bounds_lon" ;
+	float bounds_lon(y, x, nvertex) ;
+	float bounds_lat(y, x, nvertex) ;
+```
