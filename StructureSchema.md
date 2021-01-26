@@ -18,5 +18,9 @@ Cell methods includes information on masking, averaging, etc which is related to
 
 Coordinate information which is an extension of the parameter definiton, and really belongs in the CMOR variables. 
 
-If we consider cell methods, coordinates, flag values and flag meanings as external to structures, then the 220 CMIP6 structure records reduces to 85 structures in teh new schema.
+If we consider cell methods, coordinates, flag values and flag meanings as external to structures, then the 220 CMIP6 structure records reduces to 85 structures in the new schema.
+
+However, we do wish to distinguish between cell data and point data. Cell data may be the mean, sum, maximum, minimum etc over a cell, but the common requirements is that bounds be specified. The spatial data is always considered as cell data. Temporal data can be taken as purely point data.
+
+
 
