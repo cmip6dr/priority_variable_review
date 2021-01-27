@@ -37,5 +37,14 @@ With current cell methods `time: mean`.
 * Pressure level variables (e.g. `ua` on 8 pressure levels): the CF default interpretation would be as point variables, but it is not clear whether this is intended.
 * Ocean model variables: these appear to be intensive (e.g. salinity). Griffies et al. indicate that, for instance, mass of salt in a cell should be computed as the mass in the cell multiplied by the reported salinity value, impying that salinity is intended to be a cell mean. This is not the default CF interpretation, so we require clarification and a probable change to `area: height: time: mean` or `volume: time: mean`.
 * Four surface stress variables: intensive by default, but probably intended as exensive.
-* Two sea ice mass flux variables: would make sense to consider these as mean along the gird boundary (need confirmation from SIMIP).
+* Two sea ice mass flux variables: would make sense to consider these as mean along the grid boundary (need confirmation from SIMIP).
+
+## Time point
+
+* ua, va: instantaneous wind on model levels
+* 9 surface radiation fields, including albedo, requested by RFMIP. 
+
+RFMIP will probably have a view on their requested variables. The default, `area: point`, is probably correct. `height: point` should also be made explicit. 6 are at the surface, 3 at top-of-atmosphere. In common with many single-level fields, the single level is not expressed explicitly in the CF metadata.
+
+For `ua` and `va` it is less clear. The point value is probably intented here. When converting to monthly mean, we (perhaps?) also want to change to an area mean, but the distinction between the point value at a grid center and the grid cell mean is probably of little relevance in these climate model diagnostics. The desire to express as being specifically one or the other in the metadata is motivated by a need for precision and consistency in the metadata, not by a need for accuracy.  
 
