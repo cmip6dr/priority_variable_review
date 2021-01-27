@@ -24,7 +24,7 @@ However, we do wish to distinguish between cell data and point data. Cell data m
 
 The proposal is to have a functional approach to dealing with cell methods, so that it is possible to pick apart the different elements. 
 
-There are a number of CMIP6 cell methods strings which make no reference to spatial processing: these should be modified. The default interpretation when it is omitted is specified by the CF Convention and depends on the nature of the data variable, it defaults to `mean` for extensive parameters and `point` for intensive ones ((http://cfconventions.org/cf-conventions/cf-conventions.html#cell-methods)[Section 7.3]). Another way of looking at this is that if it makes a sense as a point value, that is the default.
+There are a number of CMIP6 cell methods strings which make no reference to spatial processing: these should be modified. The default interpretation when it is omitted is specified by the CF Convention and depends on the nature of the data variable, it defaults to `mean` for extensive parameters and `point` for intensive ones ([Section 7.3](http://cfconventions.org/cf-conventions/cf-conventions.html#cell-methods)). Another way of looking at this is that if it makes a sense as a point value, that is the default.
 
 * `time: mean` : four Calipso-simulator cloud cover parameters, `area: mean`.
 * `time: mean` : one ocean transect varaible: `sum` along transect, which is not an explicit dimension [need to look into this].
