@@ -16,3 +16,8 @@ GCOS ECVs, such as **Upper-air Temperature**, may cover multiple CMIP variables.
 The international system of quantities defines quantities such as **Thermodynamic Temperature** which covers 5 GCOS ECVs and dozens of CMIP variables. Some CMIP variables do not readily match on to existing ISO 80000 quantities. 
 
 * [Wikipedia: ISO/IEC 80000](https://en.wikipedia.org/wiki/ISO/IEC_80000)
+
+## Other Communities
+
+* CORDEX: downscaling from CMIP6 variables (the CMIP6-to-CORDEX set) and generating new output (CORDEX output request);
+* VIACSAB: one of the many MIPs, but perhaps expanded role ...
